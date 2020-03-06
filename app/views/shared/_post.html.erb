@@ -1,0 +1,84 @@
+<% @post = Post.new unless @post %>
+<%= form_for @post, url: post_path do |form| %>
+<%= form.label :"カフェの名前" %> <%= form.text_field :store_name, id: :store_name %>
+<%= form.label :"住所" %> <%= form.text_field :address, id: :address %>
+<%= form.label :"カフェの画像" %><%= form.file_field :image %>
+<%= form.label :"営業時間" %>
+<%= form.time_field :time %><%= form.label :"〜" %><%= form.time_field :time %>
+
+<%= form.label :"環境" %>
+
+<div class="kankyou">
+
+<div class="environment">
+<%= image_tag 'plug.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'Wi-Fi.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'tabako.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'card.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+</div>
+
+<%= form.label :"評価" %>
+
+<div class="star">
+    
+<div class="environment">
+<%= image_tag 'star.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'star.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'star.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'star.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+
+<div class="environment">
+<%= image_tag 'star.png' , :size => '20x20'%>:
+</div>
+<div class="environment">
+<%= form.check_box :environment %>
+</div>
+</div>
+
+<%= form.submit "投稿" %>
+<% end %>
