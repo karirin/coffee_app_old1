@@ -1,0 +1,56 @@
+
+<%= form_for post do |f|%>
+  <table class="table">
+    <tr>
+      <th>カフェの名前</th>
+      <td>
+        <%= post.store_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>
+        <%= post.address %>
+      </td>
+    </tr>
+      <th>カフェの画像</th>
+      <td>
+        <%= post.image %>
+      </td>
+    </tr>
+      <th>営業時間</th>
+      <td>
+        <%= post.time_start %>
+      </td>
+      <td>
+      <%= f.label :"〜" %>
+      </td>
+      <td>
+        <%= post.time_end %>
+      </td>
+    </tr>
+        <tr>
+      <th>環境</th>
+      <td>
+        <%= post.store_name %>
+      </td>
+    </tr>
+      <tr>
+      <th>評価</th>
+      <td>
+        <%= post.store_name %>
+      </td>
+    </tr>
+  </table>
+<%= f.submit '投稿する'%>
+<% end %>
+<%= form_for post, url: post_path do |f|%>
+        <%= f.hidden_field :store_name %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :image %>
+        <%= f.hidden_field :time_start %>
+        <%= f.hidden_field :time_end %>
+        <%= f.hidden_field :environment %>
+<%= f.submit '入力画面に戻る'%>
+<% end %>
+  

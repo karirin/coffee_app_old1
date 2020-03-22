@@ -1,0 +1,18 @@
+      <% @posts.each do |post| %>
+
+        <table class="table">
+        <tr>
+            <th>
+            <%= post.store_name %></th>
+            <td><%= post.address %></td>
+            <td><%= post.image %></td>
+            <td><%= post.time_start %></td>
+            <td><%= post.time_end %></td>
+            <td><%= post.environment %></td>
+        </tr>
+          </table>
+
+      <% end %>
+      <%= will_paginate %>
+
+
