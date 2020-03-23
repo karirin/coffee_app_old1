@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-before_action :post_params, only: [:confirm]
+before_action :post_params, only: :confirm
+before_action :correct_user,   only: :destroy
   
   def new
     @post = Post.new
@@ -15,9 +16,20 @@ before_action :post_params, only: [:confirm]
     @posts = Post.paginate(page: params[:page], per_page: 5)
   end
   
+  def destroy
+    @post.destroy
+    flash[:success] = "post deleted"
+    redirect_to request.referrer || root_url
+  end
+  
   private
 
   def post_params
     params.require(:post).permit(:store_name, :address, :image, :time_start, :time_end, :environment)
+  end
+  
+  def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
   end
 end

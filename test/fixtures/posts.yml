@@ -22,7 +22,7 @@ two:
   time_end: MyString
   user: two
   created_at: <%= Time.zone.now %>
-  user: michael
+  user: ants
   
 <% 30.times do |n| %>
 post_<%= n %>:
