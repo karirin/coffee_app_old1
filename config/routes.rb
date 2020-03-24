@@ -9,10 +9,15 @@ Rails.application.routes.draw do
   patch '/post', to: 'posts#index'
   get '/post', to: 'posts#index'
   delete '/post', to: 'posts#destroy'
-
-  resources :users
+  
+    resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :posts, only: [:new, :index]
+  resources :relationships,       only: [:create, :destroy]
 
 end
