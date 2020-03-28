@@ -5,7 +5,7 @@
             <th>
             <%= post.store_name %></th>
             <td><%= post.address %></td>
-            <td><%= post.image %></td>
+            <td><%= image_tag post.image.url, :size =>'200x200'%><td>
             <td><%= post.time_start %></td>
             <td><%= post.time_end %></td>
             <td><%= post.environment %></td>

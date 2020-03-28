@@ -2,7 +2,7 @@
 <%= form_for post do |form| %>
 <%= form.label :"カフェの名前" %> <%= form.text_field :store_name, id: :store_name %>
 <%= form.label :"住所" %> <%= form.text_field :address, id: :address %>
-<%= form.label :"カフェの画像" %><%= form.file_field :image %>
+<%= form.label :"カフェの画像" %><%= form.file_field :image, class: "image" %>
 <%= form.label :"営業時間" %>
 <%= form.time_field :time_start %><%= form.label :"〜" %><%= form.time_field :time_end %>
 

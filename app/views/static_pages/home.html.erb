@@ -17,17 +17,18 @@
     </div>
   </div>
 <% else %>
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to 'かんたんログイン', test_login_path, class:"btn btn-lg btn-success" %>
+ <div class="image">
+　<div class="home_topic">
+   <h1>お気に入りのカフェを投稿しよう</h1>
+   <h2>
+    自分のお気に入りのカフェを投稿で共有するアプリケーションです。<br>
+    住所や営業時間はもちろん、Wi-Fiやクレジットカードの利用状況まで確認いただきます。
+   </h2>
+ </div>
+ <div class="home_loginbutton">
+  <%= link_to "サインアップ", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to 'テストログイン', test_login_path, class:"btn btn-lg btn-success" %>
+ </div>
 </div>
 <% end %>
 

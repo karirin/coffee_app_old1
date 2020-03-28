@@ -4,4 +4,5 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :store_name, presence: true
   validates :address, presence: true
+  mount_uploader :image, ImageUploader
 end
