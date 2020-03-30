@@ -21,7 +21,7 @@ two:
   time_start: MyString
   time_end: MyString
   user: two
-  created_at: <%= Time.zone.now %>
+  created_at: convert_tz('<%= Time.zone.now %>', '+00:00','+09:00');
   user: ants
   
 <% 30.times do |n| %>

@@ -1,13 +1,22 @@
-<li id="post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-  <span class="store_name"><%= post.store_name %></span>
-  <span class="address"><%= post.address %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
-    <% if current_user?(post.user) %>
+<div class="Mypost">
+ <li>
+  <div class="Mypost_detail">
+   <div class="post_image">
+    <%= image_tag post.image.url, :size =>'100x100'%>
+   </div>
+   <div class="Mypost_content">
+    <p>お店の名前：<%= post.store_name %></p>
+    <p>住所：<%= post.address %></p>
+    <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
+    <span class="timestamp">
+     Posted <%= time_ago_in_words(post.created_at) %> ago.
+     <% if current_user?(post.user) %>
       <%= link_to "delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-    <% end %>
-  </span>
-</li>
+                                      data: { confirm: "You sure?" } %>
+     <% end %>
+    </span>
+   </div>
+  </div>
+ </li>
+</div>
+

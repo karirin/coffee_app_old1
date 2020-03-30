@@ -63,19 +63,22 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
+  def myfeed
+#   following_ids = "SELECT followed_id FROM relationships 
+#                      WHERE follower_id = :user_id"
+#   Post.where("user_id IN (#{following_ids})
+#                     OR user_id = :user_id", user_id: id) 
+    Post.where(user_id: id)
+  end
+  
+  def followingfeed
+   following_ids = "SELECT followed_id FROM relationships 
+                      WHERE follower_id = :user_id"
+   Post.where("user_id IN (#{following_ids}) = :user_id", user_id: id) 
   end
 
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
-  end
-  
-  def feed
-    Post.where("user_id = ?", id)
   end
   
   def follow(other_user)

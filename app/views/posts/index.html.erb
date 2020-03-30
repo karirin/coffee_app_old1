@@ -1,18 +1,24 @@
-      <% @posts.each do |post| %>
-
-        <table class="table">
-        <tr>
-            <th>
-            <%= post.store_name %></th>
-            <td><%= post.address %></td>
-            <td><%= image_tag post.image.url, :size =>'200x200'%><td>
-            <td><%= post.time_start %></td>
-            <td><%= post.time_end %></td>
-            <td><%= post.environment %></td>
-        </tr>
-          </table>
-
-      <% end %>
-      <%= will_paginate %>
+<div class="row">
+ <div class="col-md-1">
+</div>
+<div class="col-md-10">
+ <div class="Allpost">
+  <% @posts.each do |post| %>
+  <div class="Allpost_detail">
+   <div class="post_image">
+    <%= image_tag post.image.url, :size =>'150x150'%></th>
+   </div>
+   <div class="post_content">
+    <p>お店の名前：<%= post.store_name %></p>
+    <p>住所：<%= post.address %></p>
+    <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
+   </div>
+  </div>
+  <% end %>
+ </div>
+</div>
+<div class="col-md-1">
+</div>
+<%= will_paginate class: "center"%>
 
 

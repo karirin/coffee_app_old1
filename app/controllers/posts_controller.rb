@@ -13,7 +13,7 @@ before_action :correct_user,   only: :destroy
   end
   
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 5)
+    @posts = Post.paginate(page: params[:page], per_page: 6)
   end
   
   def destroy

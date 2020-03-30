@@ -234,11 +234,12 @@ input {
   }
 }
 
-/* microposts */
+/* posts */
 
-.microposts {
+.posts {
   list-style: none;
   padding: 0;
+  display: block;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -258,7 +259,7 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
+//    margin-left: 60px;
   }
   .gravatar {
     float: left;
@@ -295,13 +296,73 @@ span.picture {
   height: 630px;
 }
 
-.home_topic{
+//mycss
+
+.home_topic {
   margin: 50px 0 0 50px;
 }
 
-.home_loginbutton{
+.home_loginbutton {
   bottom: 0;
   right: 0;
   position:absolute;
   margin: 0 200px 200px 0;
+}
+
+.Allpost {
+  padding: 10px;
+  display: block;
+}
+
+.Allpost_detail {
+  display: inline-block;
+  border: solid;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.post_image {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.post_content {
+  width: auto;
+  display: inline-block;
+}
+
+.post_content p {
+  margin-bottom: 0;
+}
+
+.name{
+  color: #000;
+  font-size: 20px;
+}
+
+.Mypost {
+  display: inline-block;
+  width: 320px;
+}
+
+.Mypost_detail {
+  display: inline-block;
+  border: solid;
+  width: auto;
+  height: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+ 
+.Mypost_content{
+  font-size: 15px;
+  display: inline-block;
+}
+
+.pagination{
+  margin: 0;
 }
