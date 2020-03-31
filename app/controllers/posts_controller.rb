@@ -5,6 +5,10 @@ before_action :correct_user,   only: :destroy
   def new
     @post = Post.new
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
   
   def confirm
     @post = Post.new(post_params)
@@ -14,6 +18,7 @@ before_action :correct_user,   only: :destroy
   
   def index
     @posts = Post.paginate(page: params[:page], per_page: 6)
+    @like = Like.new
   end
   
   def destroy

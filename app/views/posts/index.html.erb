@@ -4,16 +4,18 @@
 <div class="col-md-10">
  <div class="Allpost">
   <% @posts.each do |post| %>
-  <div class="Allpost_detail">
-   <div class="post_image">
-    <%= image_tag post.image.url, :size =>'150x150'%></th>
-   </div>
-   <div class="post_content">
-    <p>お店の名前：<%= post.store_name %></p>
-    <p>住所：<%= post.address %></p>
-    <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
-   </div>
-  </div>
+   <a href="/posts/<%= post.id %>">
+    <div class="Allpost_detail">
+     <div class="post_image">
+      <%= image_tag post.image.url, :size =>'150x150'%>
+     </div>
+     <div class="post_content">
+      <p>お店の名前：<%= post.store_name %></p>
+      <p>住所：<%= post.address %></p>
+      <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
+     </div>
+    </div>
+   </a>
   <% end %>
  </div>
 </div>

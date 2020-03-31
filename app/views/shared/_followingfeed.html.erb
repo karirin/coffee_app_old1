@@ -2,5 +2,5 @@
   <ol class="posts">
     <%= render @followingfeed_items %>
   </ol>
-  <%= will_paginate @followingfeed_items, class: "center"%>
+  <%= will_paginate @followingfeed_items, :param_name => 'followingfeed_items_page', class: "center" %>
 <% end %>

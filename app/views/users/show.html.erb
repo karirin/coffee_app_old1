@@ -19,6 +19,11 @@
         <%= render @posts %>
       </ol>
       <%= will_paginate @posts %>
+      <h3>いいねしている投稿</h3>
+      <% @user.liked_posts.each do |post| %>
+       <%= post.user.email %>
+       <%= post.store_name %>
+      <% end %>
     <% end %>
   </div>
 </div>
