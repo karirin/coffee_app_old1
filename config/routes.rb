@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/posts', to: 'posts#confirm'
   patch '/post', to: 'posts#index'
   get '/post', to: 'posts#index'
+  post '/post', to: 'posts#create'
   delete '/post', to: 'posts#destroy'
   resources :users do
     member do

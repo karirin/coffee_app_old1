@@ -8,6 +8,8 @@
     <p>お店の名前：<%= post.store_name %></p>
     <p>住所：<%= post.address %></p>
     <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
+
+   </div>
     <span class="timestamp">
      Posted <%= time_ago_in_words(post.created_at) %> ago.
      <% if current_user?(post.user) %>
@@ -15,7 +17,6 @@
                                       data: { confirm: "You sure?" } %>
      <% end %>
     </span>
-   </div>
   </div>
  </li>
 </div>

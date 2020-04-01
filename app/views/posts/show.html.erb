@@ -1,7 +1,18 @@
-<h1>投稿詳細ページ</h1>
-<h3><%= @post.user.email %></h3>
-<h3><%= @post.store_name %></h3>
-<h3>いいね件数: <%= @post.likes.count %></h3>
+<div class="row">
+ <div class="col-md-2">
+ </div>
+<div class="col-md-8">
+ <div class="Allpost">
+    <div class="showAllpost_detail">
+     <div class="post_image">
+      <%= image_tag @post.image.url, :size =>'300x300'%>
+     </div>
+     <div class="post_content">
+      <p>お店の名前：<%= @post.store_name %></p>
+      <p>住所：<%= @post.address %></p>
+      <p>営業時間：<%= @post.time_start %>〜<%= @post.time_end %></p>
+
+     <h3>いいね件数: <%= @post.likes.count %></h3>
 <% if current_user.already_liked?(@post) %>
   <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
 <% else %>
@@ -9,5 +20,11 @@
 <% end %>
 <h2>いいねしたユーザー</h2>
 <% @post.liked_users.each do |user| %>
-  <li><%= user.email %></li>
+  <li><%= gravatar_for user, :size =>'50x50' %><%= user.name %></li>
 <% end %>
+     </div>
+    </div>
+ </div>
+</div>
+<div class="col-md-2">
+</div>

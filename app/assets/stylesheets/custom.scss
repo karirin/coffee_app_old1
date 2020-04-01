@@ -12,7 +12,6 @@
 
 body {
   padding-top: 30px;
-  height: 700px;
 }
 
 section {
@@ -259,7 +258,7 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-//    margin-left: 60px;
+    text-align: right;
   }
   .gravatar {
     float: left;
@@ -286,14 +285,14 @@ span.picture {
   background-image:url(image-path('coffee.jpg'));
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 600px;
   position:relative;
 }
 
 .top_container{
   margin-top: 20px;
   width: 100%;
-  height: 630px;
+  height: auto;
 }
 
 //mycss
@@ -337,6 +336,7 @@ span.picture {
 
 .post_content p {
   margin-bottom: 0;
+  font-size: 20px;
 }
 
 .name{
@@ -365,4 +365,22 @@ span.picture {
 
 .pagination{
   margin: 0;
+}
+
+.showAllpost_detail {
+  display: inline-block;
+  border: solid;
+  width: auto;
+  height: auto;
+  padding: 30px;
+  margin-bottom: 10px;
+}
+
+.posts li{
+  display: inline-block;
+ // vertical-align: top;
+}
+
+.col-md-9{
+//  height: 2000px;
 }
