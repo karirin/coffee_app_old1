@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     @post.save!
+    flash[:success] = '投稿されました。'
   end
 
   def index
@@ -29,14 +30,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = 'post deleted'
+    flash[:success] = '投稿が削除されました。'
     redirect_to request.referrer || root_url
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:store_name, :address, :image, :time_start, :time_end, :environment)
+    params.require(:post).permit(:store_name, :address, :image, :time_start, :time_end, :environment, :evaluation)
   end
 
   def correct_user

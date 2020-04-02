@@ -5,8 +5,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    # このコードは慣習的に正しくない
-    @post = @user.posts.new(store_name: 'CoffeeShop', address: 'jyusho')
+    @post = @user.posts.new(store_name: 'CoffeeShop', address: 'jyusho', time_start: '09:00', time_end: '18:00', environment: '1', evaluation: '1')
   end
 
   test 'should be valid' do
@@ -23,10 +22,37 @@ class PostTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test 'store_name should not be too long' do
+    @post.store_name = 'a' * 21
+    assert_not @user.valid?
+  end
+
   test 'address should be present' do
     @post.address = '     '
     assert_not @user.valid?
   end
 
+  test 'address should not be too long' do
+    @post.address = 'a' * 51
+    assert_not @user.valid?
+  end
 
+  test 'time_start should be present' do
+    @post.time_start = '     '
+    assert_not @user.valid?
+  end
+
+  test 'time_end should be present' do
+    @post.time_end = '     '
+    assert_not @user.valid?
+  end
+
+  test 'environment should be present' do
+    @post.environment = '     '
+    assert_not @user.valid?
+  end
+  test 'evaluation should be present' do
+    @post.time_end = '     '
+    assert_not @user.valid?
+  end
 end
