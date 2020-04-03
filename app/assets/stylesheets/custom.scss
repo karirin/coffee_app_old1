@@ -293,6 +293,7 @@ span.picture {
   height: auto;
   padding: 10px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .post_image {
@@ -329,6 +330,7 @@ span.picture {
   height: auto;
   margin-bottom: 10px;
   padding: 10px;
+  border-radius: 10px; 
 }
  
 .Mypost_content{
@@ -356,4 +358,33 @@ span.picture {
 
 .col-md-9{
 //  height: 2000px;
+}
+
+#post_time_start{
+  width: auto;
+}
+
+#post_time_end{
+  width: auto;
+}
+
+.btn.btn-default{
+ padding: 10px;
+
+}
+
+.btn-group{
+  margin: 5px 5px;
+}
+
+.form-group{
+  margin-top: 10px;
+}
+
+.environment.center{
+  margin-bottom: 10px;
+}
+
+.evaluation.center{
+  margin: 10px 0px;
 }

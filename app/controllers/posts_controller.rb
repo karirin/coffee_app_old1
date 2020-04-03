@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:store_name, :address, :image, :time_start, :time_end, :environment, :evaluation)
+    params.require(:post).permit(:store_name, :address, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation)
   end
 
   def correct_user

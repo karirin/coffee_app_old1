@@ -1,85 +1,70 @@
 
-<%= form_for post do |form| %>
-<%= form.label :"カフェの名前" %> <%= form.text_field :store_name, id: :store_name %>
-<%= form.label :"住所" %> <%= form.text_field :address, id: :address %>
-<%= form.label :"カフェの画像" %><%= form.file_field :image, class: "image" %>
-<%= form.label :"営業時間" %>
-<%= form.time_field :time_start %><%= form.label :"〜" %><%= form.time_field :time_end %>
+<%= form_for post ,html: { class: "form-group" }  do |form| %>
 
-<%= form.label :"環境" %>
+<%= form.label :"カフェ" %> <%= form.text_field :store_name, id: :store_name ,class: "form-control",placeholder: "カフェの名前をご入力ください"%>
+<%= form.label :"住所" %> <%= form.text_field :address, id: :address ,class: "form-control",placeholder: "住所をご入力ください"%>
 
-<div class="kankyou">
+<%= form.label :"カフェの画像" %><%= form.file_field :image%>
 
-<div class="environment">
-<%= image_tag 'plug.png' , :size => '20x20'%>:
-</div>
-<div class="environment">
-<%= form.check_box :environment %>
-</div>
+<%= form.label :"営業時間"%><br>
+<%= form.time_field :time_start ,clsss: "bootstrap-timepicker"%> <%= form.label :"〜" %> <%= form.time_field :time_end %>
 
-<div class="environment">
-<%= image_tag 'Wi-Fi.png' , :size => '20x20'%>:
-</div>
-<div class="environment">
-<%= form.check_box :environment %>
-</div>
+<br><%= form.label :"環境" %>
 
-<div class="environment">
-<%= image_tag 'tabako.png' , :size => '20x20'%>:
+<div class="environment center">
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= form.check_box :wifi, {} , true, false %><%= image_tag 'wifi.png' , :size => '50x40'%>
+    </label>
 </div>
-<div class="environment">
-<%= form.check_box :environment %>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= form.check_box :plug , {} , true, false %><%= image_tag 'plug.png' , :size => '50x40'%>
+    </label>
 </div>
-
-<div class="environment">
-<%= image_tag 'card.png' , :size => '20x20'%>:
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= form.check_box :tabacco , {} , true, false %><%= image_tag 'tabacco.png' , :size => '50x40'%>
+    </label>
 </div>
-<div class="environment">
-<%= form.check_box :environment %>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= form.check_box :card , {} , true, false %><%= image_tag 'card.png' , :size => '50x40'%>
+    </label>
 </div>
-
 </div>
 
 <%= form.label :"評価" %>
-
-<div class="star">
-    
-<div class="environment">
-<%= image_tag 'star.png' , :size => '20x20'%>:
+<div class="evaluation center">
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+		<%# <%= form.check_box :evaluation,  {} , true, false %><%#<%= image_tag 'star.png' , :size => '50x40'%>
+         <%= form.check_box :evaluation,   {} , '2', nil %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
 </div>
-<div class="environment">
-<%= form.check_box :evaluation %>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+         <%= form.check_box :evaluation,  {} , '3', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
 </div>
-
-<div class="environment">
-<%= image_tag 'star.png' , :size => '20x20'%>:
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+         <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
 </div>
-<div class="environment">
-<%= form.check_box :evaluation %>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+  		 <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
 </div>
-
-<div class="environment">
-<%= image_tag 'star.png' , :size => '20x20'%>:
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+  		 <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div><br>
 </div>
-<div class="environment">
-<%= form.check_box :evaluation %>
-</div>
-
-<div class="environment">
-<%= image_tag 'star.png' , :size => '20x20'%>:
-</div>
-<div class="environment">
-<%= form.check_box :evaluation %>
-</div>
-
-<div class="environment">
-<%= image_tag 'star.png' , :size => '20x20'%>:
-</div>
-<div class="environment">
-<%= form.check_box :evaluation %>
-</div>
-</div>
-
+<br>
 
 <%= form.submit "投稿" %>
+</div>
 <% end %>
