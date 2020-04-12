@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 
 module CoffeeApp
   class Application < Rails::Application
-    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
@@ -18,5 +18,12 @@ module CoffeeApp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.generators do |g|
+      g.test_framework :rspec,
+                       helper_specs: false,
+                       routing_specs: false,
+                       view_specs: false,
+                       controller_specs: false
+    end
   end
 end

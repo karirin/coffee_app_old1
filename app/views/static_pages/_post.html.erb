@@ -1,19 +1,19 @@
 
-<%= form_for post ,html: { class: "form-group" }  do |form| %>
+<%= form_for @post ,html: { class: "form-group" } do |form| %>
 
 <%= form.label :"カフェ" %> <%= form.text_field :store_name, id: :store_name ,class: "form-control",placeholder: "カフェの名前をご入力ください"%>
 <%= form.label :"住所" %> <%= form.text_field :address, id: :address ,class: "form-control",placeholder: "住所をご入力ください"%>
 
-<%= form.label :"カフェの画像" %><%= form.file_field :image%>
-
+<%= form.label :"カフェの画像" %><%= form.file_field :image %>
+                                  
 <%= form.label :"営業時間"%><br>
 <%= form.time_field :time_start ,clsss: "bootstrap-timepicker"%> <%= form.label :"〜" %> <%= form.time_field :time_end %>
 
 <br><%= form.label :"環境" %>
 
-<div class="environment center">
+<div class="environment center" data-toggle="tooltip" title="Wi-Fi,充電,喫煙,クレジットカードの利用状況をご入力ください">
 <div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-default">
+	<label class="btn btn-default" >
         <%= form.check_box :wifi, {} , true, false %><%= image_tag 'wifi.png' , :size => '50x40'%>
     </label>
 </div>
@@ -35,31 +35,32 @@
 </div>
 
 <%= form.label :"評価" %>
-<div class="evaluation center">
+<div class="evaluation center"　data-toggle="tooltip" title="評価を５段階でご入力ください">
+
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
 		<%# <%= form.check_box :evaluation,  {} , true, false %><%#<%= image_tag 'star.png' , :size => '50x40'%>
-         <%= form.check_box :evaluation,   {} , '2', nil %><%= image_tag 'star.png' , :size => '50x40'%>
+         <%= form.check_box :evaluation1,   {} , '1', nil %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div>
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
-         <%= form.check_box :evaluation,  {} , '3', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+         <%= form.check_box :evaluation2,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div>
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
-         <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+         <%= form.check_box :evaluation3,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div>
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
-  		 <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+  		 <%= form.check_box :evaluation4,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div>
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
-  		 <%= form.check_box :evaluation,  {} , true, false  %><%= image_tag 'star.png' , :size => '50x40'%>
+  		 <%= form.check_box :evaluation5,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div><br>
 </div>

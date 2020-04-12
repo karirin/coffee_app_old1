@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  protect_from_forgery except: %i[create destroy]
   def create
     @like = current_user.likes.create(post_id: params[:post_id])
   end

@@ -5,10 +5,10 @@
 <div class="col-md-10">
  <div class="Allpost">
   <% @posts.each do |post| %>
-   <a href="/posts/<%= post.id %>">
+   <a href="/post/<%= post.id %>">
     <div class="Allpost_detail">
      <div class="post_image">
-      <%= image_tag post.image.url, :size =>'130x130'%>
+      <%= image_tag post.image, :size =>'130x130'%>
      </div>
      <div class="post_content">
       <p>お店の名前：<%= post.store_name %></p>

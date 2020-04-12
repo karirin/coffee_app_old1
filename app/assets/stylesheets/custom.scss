@@ -28,11 +28,15 @@ textarea {
   margin-bottom: 10px;
 }
 
+.home_topic h1{
+  color:#fff;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: 1px;
   font-weight: bold;
-  color :#fff;
+  color :rgb(0, 0, 0);
 }
 
 h2 {
@@ -41,7 +45,7 @@ h2 {
   margin-bottom: 30px;
   font-weight: normal;
   letter-spacing: 1px;
-  color :#fff;
+  color :rgb(0, 0, 0);
   line-height: 1.5;
 }
 
@@ -52,23 +56,26 @@ p {
 
 header{
   margin: 0px;
-  padding: 0 20px;
+  padding: 0 60px;
+  width: auto;
+  height: auto;
 }
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
+  margin-left: 50px;
+  font-size: 2.8em;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  letter-spacing: 3px;
+  padding: 5px 0;
+// font-weight: bold;
+  font-family: "Courier";
 }
 
 #logo:hover {
   color: #fff;
-  text-decoration: none;
+  text-decoration:underline;
 }
 
 footer {
@@ -76,6 +83,8 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1rem;
+  width: 1440px;
+  height: auto;
 }
 
 .debug_dump {
@@ -345,10 +354,11 @@ span.picture {
 .showAllpost_detail {
   display: inline-block;
   border: solid;
-  width: auto;
+  width: 100%;
   height: auto;
-  padding: 30px;
-  margin-bottom: 10px;
+  border-radius: 10px; 
+  //padding: 30px;
+//  margin-bottom: 10px;
 }
 
 .posts li{
@@ -387,4 +397,88 @@ span.picture {
 
 .evaluation.center{
   margin: 10px 0px;
+}
+
+.table{
+padding: 10px 0;
+}
+
+.table tbody{
+  //width: auto;
+}
+
+.table tbody tr td{
+  text-align: center;
+  font-size: 20px;
+}
+
+.table tbody tr th{
+  font-size: 20px;
+}
+
+.post_image{
+  border-radius: 35px;
+}
+
+.showAllpost_detail .post_image{
+  padding: 20px;
+  position: relative;
+}
+
+.showAllpost_detail .post_image img{
+  border: solid;
+  border-radius: 10px; 
+}
+
+.showAllpost_detail .post_content{
+  padding: 20px 20px 0px 0;
+}
+
+.showAllpost_detail .post_content h3{
+  font-size: 20px;
+  margin: 0;
+}
+
+.button_to input{
+  display: inline-block;
+  text-decoration: none;
+  color: #8b2929;
+  width: 100px;
+  line-height: 30px;
+  border-radius: 80%;
+  border: solid 2px #8b2929;
+  text-align: center;
+  overflow: hidden;
+  font-weight: bold;
+  transition: .4s;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
+.navbar-right li{
+  font-size: 20px;
+  border-left:1.5px solid rgb(212, 212, 212);
+}
+
+.navbar-right li:hover{
+  background-color: rgb(75, 74, 74);
+}
+
+
+.navbar-right li:last-child{
+  border-right:1px solid rgb(212, 212, 212);
+}
+
+.navbar-right li a{
+    padding:25px;
+}
+
+.row{
+  margin-top: 50px;
+}
+
+.good_users{
+  text-align: left;
 }

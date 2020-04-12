@@ -3,8 +3,15 @@
 post_1:
   store_name: CAFE
   address: Jyusho
-  environment: '1'
-  evaluation: '1'
+  wifi: 'NULL'
+  plug: 'NULL'
+  tabacco: 'true'
+  card: 'true'
+  evaluation1: 'NULL'
+  evaluation2: 'NULL'
+  evaluation3: '1'
+  evaluation4: '1'
+  evaluation5: '1'
   time_start: '09:00'
   time_end: '18:00'
   user_id: '1'
@@ -12,9 +19,15 @@ post_1:
 two:
   store_name: MyString
   address: MyString
-  image: MyString
-  environment: MyString
-  evaluation: MyString
+  wifi: 'true'
+  plug: 'NULL'
+  tabacco: 'true'
+  card: 'NULL'
+  evaluation1: '1'
+  evaluation2: 'NULL'
+  evaluation3: 'NULL'
+  evaluation4: 'NULL'
+  evaluation5: '1'
   time_start: MyString
   time_end: MyString
   user: two

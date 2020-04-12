@@ -11,7 +11,34 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
-//= require jquery3
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
+    $(function() {
+        $(".button_to input").hover(
+            function(){
+        $(this).css(
+            {
+              backgroundColor: '#8b2929',
+              color: '#fff',
+            }
+        )},
+            function(){
+        $(this).css(
+            {
+              backgroundColor: '#fff',
+              color: '#8b2929',
+            }        
+        )
+    })});
+
+
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+
+   
+

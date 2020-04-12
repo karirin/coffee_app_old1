@@ -1,50 +1,95 @@
 
-<%= form_for post do |f|%>
+<%= form_for @post ,url: 'post/create' do |f|%> 
   <table class="table">
     <tr>
       <th>カフェの名前</th>
       <td>
-        <%= post.store_name %>
+        <%= @post.store_name %>
+        <%= f.hidden_field :store_name %>
       </td>
     </tr>
     <tr>
       <th>住所</th>
       <td>
-        <%= post.address %>
+        <%= @post.address %>
+        <%= f.hidden_field :address %>
       </td>
     </tr>
+    <tr>
       <th>カフェの画像</th>
       <td>
-        <%= image_tag post.image.url, :size =>'200x200'%>
+        <%= image_tag @post.image.url, :size =>'300x250'%>
+                <%= f.hidden_field :image %>
       </td>
     </tr>
+            <tr>
       <th>営業時間</th>
       <td>
-        <%= post.time_start %>
-      </td>
-      <td>
-      <%= f.label :"〜" %>
-      </td>
-      <td>
-        <%= post.time_end %>
+        <%= @post.time_start %>
+        <%= f.hidden_field :time_start %>
+        〜
+        <%= @post.time_end %>
+        <%= f.hidden_field :time_end %>
       </td>
     </tr>
         <tr>
       <th>環境</th>
       <td>
-        <%= post.store_name %>
+<% if @post.wifi.present? %>
+ <%= image_tag 'wifi.png' , :size => '50x40'%>
+ <%= f.hidden_field :wifi %>
+<%end%>
+
+<% if @post.plug.present? %>
+ <%= image_tag 'plug.png' , :size => '50x40'%>
+ <%= f.hidden_field :plug %>
+<%end%>
+
+<% if @post.tabacco.present? %>
+ <%= image_tag 'tabacco.png' , :size => '50x40'%>
+ <%= f.hidden_field :tabacco %>
+<%end%>
+
+<% if @post.card.present? %>
+ <%= image_tag 'card.png' , :size => '50x40'%>   
+ <%= f.hidden_field :card %>
+<%end%>
       </td>
     </tr>
       <tr>
       <th>評価</th>
       <td>
-        <%= post.store_name %>
+<% if @post.evaluation1.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+ <%= f.hidden_field :evaluation1 %>
+<%end%>
+
+<% if @post.evaluation2.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+ <%= f.hidden_field :evaluation2 %>
+<%end%>
+
+<% if @post.evaluation3.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+ <%= f.hidden_field :evaluation3 %>
+<%end%>
+
+<% if @post.evaluation4.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+ <%= f.hidden_field :evaluation4 %>
+<%end%>
+
+<% if @post.evaluation5.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+ <%= f.hidden_field :evaluation5 %>
+<%end%>
       </td>
+    </tr>
     </tr>
   </table>
 <%= f.submit '投稿する'%>
 <% end %>
-<%= form_for post, url: post_path do |f|%>
+<%= form_for @post, url: new_post_path do |f|%>
         <%= f.hidden_field :store_name %>
         <%= f.hidden_field :address %>
         <%= f.hidden_field :image %>
@@ -54,6 +99,10 @@
         <%= f.hidden_field :plug %>
         <%= f.hidden_field :tabacco %>
         <%= f.hidden_field :card %>
+        <%= f.hidden_field :evaluation1 %>
+        <%= f.hidden_field :evaluation2 %>
+        <%= f.hidden_field :evaluation3 %>
+        <%= f.hidden_field :evaluation4 %>
+        <%= f.hidden_field :evaluation5 %>
 <%= f.submit '入力画面に戻る'%>
 <% end %>
-  

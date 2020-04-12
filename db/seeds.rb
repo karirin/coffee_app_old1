@@ -24,13 +24,13 @@ end
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
 #  environment = n.to_s
-  evaluation = n.to_s
+#  evaluation = n.to_s
   user_id = '1'
   Post.create!(store_name: store_name,
                address: address,
                image: image,
 #               environment: environment,
-               evaluation: evaluation,
+#               evaluation: evaluation,
                time_start: time_start,
                time_end: time_end,
                user_id: user_id)
@@ -42,14 +42,14 @@ end
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
 #  environment = n.to_s
-  evaluation = n.to_s
+#  evaluation = n.to_s
   user_id = (n + 1).to_s
   store_name = "User.#{user_id}-cafe"
   Post.create!(store_name: store_name,
                address: address,
                image: image,
 #               environment: environment,
-               evaluation: evaluation,
+#               evaluation: evaluation,
                time_start: time_start,
                time_end: time_end,
                user_id: user_id)

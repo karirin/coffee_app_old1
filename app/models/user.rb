@@ -72,6 +72,10 @@ class User < ApplicationRecord
     Post.where(user_id: id)
   end
 
+  def likingfeed
+    Like.where(user_id: id)
+  end
+
   def followingfeed
     following_ids = "SELECT followed_id FROM relationships
                       WHERE follower_id = :user_id"

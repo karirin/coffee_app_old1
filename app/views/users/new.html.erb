@@ -1,8 +1,9 @@
 <% provide(:title, 'アカウント作成画面') %>
-<h1>アカウント作成</h1>
 
 <div class="row">
+
   <div class="col-md-6 col-md-offset-3">
+  <h1>アカウント作成</h1>
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -15,7 +16,7 @@
       <%= f.label :'パスワード' %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :'再度パスワードをご入力ください' "Confirmation" %>
+      <%= f.label :'再度パスワードをご入力ください' %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "アカウント作成", class: "btn btn-primary" %>

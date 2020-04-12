@@ -1,0 +1,96 @@
+<div class="Allpost">
+    <div class="showAllpost_detail">
+     <div class="post_image">
+      <%= image_tag @post.image, :size =>'400x300'%>
+<% if current_user.already_liked?(@post) %>
+  <%= button_to 'いいね解除', post_like_path(@post), method: :delete %>
+<% else %>
+  <%= button_to 'いいね', post_likes_path(@post) %>
+<% end %>
+     </div>
+     <div class="post_content">
+  <table class="table">
+    <tr>
+      <th>カフェの名前</th>
+      <td>
+        <%= @post.store_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>
+        <%= @post.address %>
+      </td>
+    </tr>
+    <tr>
+      <th>営業時間</th>
+      <td>
+        <%= @post.time_start %>
+        〜
+        <%= @post.time_end %>
+      </td>
+    </tr>
+    <tr>
+ <th>環境</th>
+       <td>
+<% if @post.wifi.present? %>
+ <%= image_tag 'wifi.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.plug.present? %>
+ <%= image_tag 'plug.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.tabacco.present? %>
+ <%= image_tag 'tabacco.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.card.present? %>
+ <%= image_tag 'card.png' , :size => '50x40'%>   
+<%end%>
+      </td>
+          </tr>
+              <tr>
+ <th>評価</th>
+        <td>
+<% if @post.evaluation1.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.evaluation2.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.evaluation3.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.evaluation4.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+<%end%>
+
+<% if @post.evaluation5.present? %>
+ <%= image_tag 'star.png' , :size => '50x40'%>
+<%end%>
+      </td>
+          </tr>
+<tr>
+
+<th>いいね数</th>
+<td>   <%= @post.likes.count %></td>
+
+</tr>
+<tr>
+
+<th>いいねしたユーザー</th>
+<td>
+<% @post.liked_users.each do |user| %>
+  <li class = "good_users"><%= user.name %></li>
+<% end %>
+
+</td>
+</tr>
+</table>
+     </div>
+    </div>
+ </div>
