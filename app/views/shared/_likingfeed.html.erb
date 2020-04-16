@@ -1,13 +1,11 @@
 <% if @likingfeed_items.any? %>
-  <ol class="posts">
-
+  <ol class="likingfeed_posts">
          <% @likingfeed_items.each do |like| %>
             <% post = Post.find_by(id: like.post_id) %>
-
   <li>
 
    <div class="Mypost_detail">
-
+<div class="Mypost_image_content">
 
      <div class="post_image">
       <%= image_tag post.image, :size =>'100x100'%>
@@ -17,6 +15,7 @@
       <p>住所：<%= post.address %></p>
       <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
      </div>
+</div>
      <span class="timestamp">
       Posted <%= time_ago_in_words(post.created_at) %> ago.
       <% if current_user?(post.user) %>

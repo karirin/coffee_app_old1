@@ -1,7 +1,8 @@
 <% provide(:title, '投稿一覧画面') %>
+
 <div class="row">
  <div class="col-md-1">
-</div>
+ </div>
 <div class="col-md-10">
  <div class="Allpost">
   <% @posts.each do |post| %>
@@ -18,10 +19,12 @@
     </div>
    </a>
   <% end %>
+
  </div>
+   <%= will_paginate class: "center"%>
 </div>
 <div class="col-md-1">
 </div>
-<%= will_paginate class: "center"%>
+</div>
 
 

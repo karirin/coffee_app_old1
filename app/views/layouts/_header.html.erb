@@ -25,6 +25,18 @@
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
+
     </nav>
+                    <%if current_page?(post_path)%>
+<nav>
+      <ul class="index nav navbar-nav">
+      <h5>絞り込み検索</h5>
+        <li><%= link_to "都道府県", root_path %></li>
+        <li><%= link_to "いいねの数が多い順", users_path %></li>
+        <li><%= link_to "新しい投稿順", post_path %></li>
+            </ul>
+</nav>
+           
+          <% end %>
   </div>
 </header>

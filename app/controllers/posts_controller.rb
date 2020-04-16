@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
+    binding.pry
   end
 
   def index   

@@ -353,7 +353,7 @@ span.picture {
 
 .showAllpost_detail {
   display: inline-block;
-  border: solid;
+  //border: solid;
   width: 100%;
   height: auto;
   border-radius: 10px; 
@@ -363,6 +363,7 @@ span.picture {
 
 .posts li{
   display: inline-block;
+  margin-right: 5px;
  // vertical-align: top;
 }
 
@@ -431,7 +432,7 @@ padding: 10px 0;
 }
 
 .showAllpost_detail .post_content{
-  padding: 20px 20px 0px 0;
+  padding: 20px 20px 0 40px;
 }
 
 .showAllpost_detail .post_content h3{
@@ -481,4 +482,27 @@ padding: 10px 0;
 
 .good_users{
   text-align: left;
+}
+
+ol.likingfeed_posts{
+  padding: 0;
+}
+
+ol.likingfeed_posts li{
+  display: inline-block;
+  margin-right: 8px;
+}
+
+ol.likingfeed_posts li .Mypost_detail .timestamp{
+  text-align: right;
+  display: block;
+  color: $gray-light;
+}
+
+.index.nav.navbar-nav{
+  padding-right: 50px;
+}
+
+.index.nav.navbar-nav h5{
+  color: rgb(212, 212, 212);
 }
