@@ -4,16 +4,21 @@
  <div class="col-md-1">
  </div>
 <div class="col-md-10">
+      <%= form_for @posts ,html: { class: "form-group" } do |form| %>
+        <li><%= form.select :address_prefectures, Post.address_prefectures.keys, {prompt: '都道府県を選択してください'}, class: 'form-control btn' %></li>
+      <%end%>
  <div class="Allpost">
   <% @posts.each do |post| %>
+
    <a href="/post/<%= post.id %>">
+
     <div class="Allpost_detail">
      <div class="post_image">
       <%= image_tag post.image, :size =>'130x130'%>
      </div>
      <div class="post_content">
       <p>お店の名前：<%= post.store_name %></p>
-      <p>住所：<%= post.address %></p>
+      <p>住所：<%= post.address_prefectures %><%= post.address %></p>
       <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
      </div>
     </div>
@@ -22,6 +27,7 @@
 
  </div>
    <%= will_paginate class: "center"%>
+
 </div>
 <div class="col-md-1">
 </div>

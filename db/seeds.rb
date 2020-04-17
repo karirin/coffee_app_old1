@@ -20,6 +20,7 @@ end
 10.times do |n|
   store_name = "#{n + 1}-cafe"
   address = "#{n + 1}-address"
+  address_prefectures = (n + 1).to_i
   image = open("app/assets/images/cafe(#{n + 1}).jpeg")
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
@@ -28,6 +29,7 @@ end
   user_id = '1'
   Post.create!(store_name: store_name,
                address: address,
+               address_prefectures: address_prefectures,              
                image: image,
 #               environment: environment,
 #               evaluation: evaluation,
@@ -38,6 +40,7 @@ end
 
 5.times do |n|
   address = "#{n + 1}-address"
+  address_prefectures = (n + 1).to_i
   image = open("app/assets/images/cafe(#{n + 1}).jpeg")
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
@@ -47,6 +50,7 @@ end
   store_name = "User.#{user_id}-cafe"
   Post.create!(store_name: store_name,
                address: address,
+               address_prefectures: address_prefectures,               
                image: image,
 #               environment: environment,
 #               evaluation: evaluation,

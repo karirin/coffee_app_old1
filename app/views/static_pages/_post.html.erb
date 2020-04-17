@@ -2,7 +2,10 @@
 <%= form_for @post ,html: { class: "form-group" } do |form| %>
 
 <%= form.label :"カフェ" %> <%= form.text_field :store_name, id: :store_name ,class: "form-control",placeholder: "カフェの名前をご入力ください"%>
-<%= form.label :"住所" %> <%= form.text_field :address, id: :address ,class: "form-control",placeholder: "住所をご入力ください"%>
+<%= form.label :"住所" %><%= form.select :address_prefectures, Post.address_prefectures.keys, {prompt: '都道府県を選択してください'}, class: 'form-control btn' %>
+
+
+<%= form.text_field :address, id: :address ,class: "form-control",placeholder: "住所をご入力ください"%>
 
 <%= form.label :"カフェの画像" %><%= form.file_field :image %>
                                   

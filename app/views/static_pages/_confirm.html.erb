@@ -11,6 +11,8 @@
     <tr>
       <th>住所</th>
       <td>
+              <%= @post.address_prefectures %>
+        <%= f.hidden_field :address_prefectures %>
         <%= @post.address %>
         <%= f.hidden_field :address %>
       </td>

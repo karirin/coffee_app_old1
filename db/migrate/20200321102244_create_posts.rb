@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.string :evaluation
       t.string :time_start
       t.string :time_end
+      t.integer :address_prefectures
       t.references :user, foreign_key: true
 
       t.timestamps
