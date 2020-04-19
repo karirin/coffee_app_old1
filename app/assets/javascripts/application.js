@@ -31,13 +31,23 @@
               color: '#8b2929',
             }        
         )
-    })});
-
+    });
+});
 
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
-    });
+    },
+);
+
+   $(function () {
+    $(".search.box").hide();
+        $(".search.btn.btn-default").click(function () {
+            $(".search.box").slideToggle();
+        
+    }
+        )});
+
 
 
    

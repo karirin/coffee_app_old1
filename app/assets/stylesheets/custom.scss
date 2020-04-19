@@ -83,8 +83,9 @@ footer {
   color: #fff;
   text-align: center;
   padding: 1rem;
-  width: 1440px;
+  width: auto;
   height: auto;
+  margin-top: 20px;
 }
 
 .debug_dump {
@@ -220,12 +221,16 @@ input {
 }
 
 .posts {
-  list-style: none;
   padding: 0;
   display: block;
+
+  width: auto;
+  text-align: center;
   li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    padding: 20px 0 0 10px;
+    display: inline-block;
+    margin-right: 5px;
+    width: auto;
   }
   .user {
     margin-top: 5em;
@@ -271,6 +276,7 @@ span.picture {
   background-position: center;
   height: 600px;
   position:relative;
+  margin-bottom: -20px;
 }
 
 .top_container{
@@ -334,7 +340,7 @@ span.picture {
 
 .Mypost_detail {
   display: inline-block;
-  border: solid;
+  box-shadow:0px 0px 6px 3px #d6d6d6;
   width: auto;
   height: auto;
   margin-bottom: 10px;
@@ -361,12 +367,6 @@ span.picture {
 //  margin-bottom: 10px;
 }
 
-.posts li{
-  display: inline-block;
-  margin-right: 5px;
- // vertical-align: top;
-}
-
 .col-md-9{
 //  height: 2000px;
 }
@@ -389,7 +389,8 @@ span.picture {
 }
 
 .form-group{
-  margin-top: 10px;
+  margin: 0;
+  //margin-top: 10px;
 }
 
 .environment.center{
@@ -486,6 +487,7 @@ padding: 10px 0;
 
 ol.likingfeed_posts{
   padding: 0;
+  text-align: center;
 }
 
 ol.likingfeed_posts li{
@@ -510,3 +512,21 @@ ol.likingfeed_posts li .Mypost_detail .timestamp{
 #post_address_prefectures{
   margin-bottom: 10px;
 }
+
+.my_toptitle{
+  font-size: 25px;
+  border-bottom:solid 1px rgb(189, 189, 189);
+}
+
+.like_toptitle{
+  font-size: 25px;
+  border-bottom:solid 1px rgb(189, 189, 189);
+  margin-bottom: 30px;
+}
+
+.following_toptitle{
+  font-size: 25px;
+  border-bottom:solid 1px rgb(189, 189, 189);
+  margin-bottom: -10px;
+}
+

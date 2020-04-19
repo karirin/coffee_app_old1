@@ -4,10 +4,47 @@
  <div class="col-md-1">
  </div>
 <div class="col-md-10">
-      <%= form_for @posts ,html: { class: "form-group" } do |form| %>
-        <li><%= form.select :address_prefectures, Post.address_prefectures.keys, {prompt: '都道府県を選択してください'}, class: 'form-control btn' %></li>
-      <%end%>
- <div class="Allpost">
+<button class="search btn btn-default">絞り込み検索</button>
+<div class="search box">
+  <%= search_form_for(@q, url:post_path) do |f|%>
+    お店の名前
+    <%= f.search_field :store_name_cont%>
+    営業時間
+  <%= f.time_field :time_start_gteq %>〜
+  <%= f.time_field :time_end_lteq %>
+  都道府県
+  <%= f.collection_select :address_prefectures_eq, @postall.distinct, :id, :address_prefectures, :include_blank => '指定なし'%>
+  並び替え
+  <%= f.select :sorts, {並び替え: "", いいねの多い順: "likes_count desc" , 投稿の新しい順: "created_at desc"} %>
+  
+  <p>環境</p>
+  <div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default" >
+  <%= f.check_box :wifi_eq_any, { multiple: true }, true, false %><%= image_tag 'wifi.png' , :size => '50x40'%>
+     </label>
+</div>
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :plug_eq_any, { multiple: true }, true, false %><%= image_tag 'plug.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :tabacco_eq_any , { multiple: true } , true, false %><%= image_tag 'tabacco.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :card_eq_any , { multiple: true } , true, false %><%= image_tag 'card.png' , :size => '50x40'%>
+    </label>
+</div>
+
+    <%= f.submit %>
+  <%end%>
+  </div>
+
+  <div class="Allpost">
   <% @posts.each do |post| %>
 
    <a href="/post/<%= post.id %>">

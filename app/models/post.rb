@@ -30,4 +30,14 @@ class Post < ApplicationRecord
     scope :get_by_address_prefectures, ->(address_prefectures) {
       where(address_prefectures: address_prefectures)
       }
+    
+    ransacker :likes_count do
+      query = '(SELECT COUNT(likes.post_id) FROM likes where likes.post_id = posts.id GROUP BY likes.post_id)'
+      Arel.sql(query)
+    end
+
+    ransacker :prefectures_group do
+      query = '(SELECT address_prefectures FROM posts GROUP BY address_prefectures)'
+      Arel.sql(query)
+    end
 end

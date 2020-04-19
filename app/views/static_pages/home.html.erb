@@ -1,5 +1,6 @@
 <% if logged_in? %>
   <div class="row">
+
     <div class="col-md-3">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -11,15 +12,16 @@
 
     <div class="col-md-9">
 
-      <h3>投稿したカフェ</h3>
+      <p class="my_toptitle">投稿したカフェ</p>
       <%= render 'shared/myfeed' %>
-                <h3>自分がいいねしたカフェ</h3>
+                <p class="like_toptitle">自分がいいねしたカフェ</p>
       <%= render 'shared/likingfeed' %>
-      <h3>フォロワーの投稿したカフェ</h3>
+      <p class="following_toptitle">フォロワーの投稿したカフェ</p>
     　<%= render 'shared/followingfeed' %>
 
 
     </div>
+
   </div>
 <% else %>
  <div class="image">

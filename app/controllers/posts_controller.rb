@@ -26,15 +26,18 @@ class PostsController < ApplicationController
   end
 
   def index 
+#    @q = Post.ransack(params[:q])
+#    @posts = @q.result(distinct: true)
     @post = Post.new
-    @posts = Post.all
+    @postall = Post.all
 #    @posts = Post.find_by("store_name = ?", params[:store_name]) 
-    @posts = Post.paginate(page: params[:page], per_page: 6)
+#    @posts = Post.paginate(page: params[:page], per_page: 6)
     @like = Like.new
-
-    if params[:address_prefectures].present?
-      @post = @post.get_by_address_prefectures params[:address_prefectures]
-    end
+    @q = Post.ransack(params[:q])
+    #sort = params[:sort] || "created_at DESC"
+    #params[:q] = { sorts: 'id desc' 
+    @posts = @q.result(distinct: true).paginate(page: params[:page], per_page: 6)
+    #@posts = @q.result.paginate(page: params[:page], per_page: 6)
   end
 
   def destroy
@@ -47,6 +50,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:store_name, :address, :address_prefectures, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation1, :evaluation2, :evaluation3, :evaluation4, :evaluation5)
+  end
+
+  def search_params
+    params.require(:q).permit(:store_name_cont, :sorts)
   end
 
   def correct_user

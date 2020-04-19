@@ -17,5 +17,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'posts/index'
   end
 
-
 end
