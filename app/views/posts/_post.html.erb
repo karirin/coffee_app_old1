@@ -1,23 +1,26 @@
-<div class="Mypost">
+<a href="/post/<%= post.id %>">
+<div class="Post">
  <li>
-  <div class="Mypost_detail">
-   <div class="post_image">
+  <div class="Post_detail">
+   <div class="Post_image">
     <%= image_tag post.image, :size =>'100x100'%>
    </div>
-   <div class="Mypost_content">
-    <p>お店の名前：<%= post.store_name %></p>
-    <p>住所：<%= post.address %></p>
-    <p>営業時間：<%= post.time_start %>〜<%= post.time_end %></p>
+   <div class="Post_content">
+    <p><strong>お店の名前</strong><span><%= post.store_name %></span></p>
+    <p><strong>住所 </strong><span><%= post.address %></span></p>
+    <p><strong>営業時間 </strong><span><%= post.time_start %>〜<%= post.time_end %></span></p>
 
    </div>
+   <div class="post_timestamp">
     <span class="timestamp">
      Posted <%= time_ago_in_words(post.created_at) %> ago.
      <% if current_user?(post.user) %>
       <%= link_to "delete", post, method: :delete,
-                                      data: { confirm: "本当に削除してもよろしいでしょうか。" } %>
+                                      data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "delete-link" %>
      <% end %>
     </span>
+   </div>
   </div>
  </li>
 </div>
-
+</a>

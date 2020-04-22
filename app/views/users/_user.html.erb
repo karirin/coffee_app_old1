@@ -1,9 +1,9 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
+  <%= image_tag user.image%>
   <%= link_to user.name, user %>
 <% if logged_in? %>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "delete", user, method: :delete,
+      <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "本当に削除してもよろしいでしょうか？" } %>
   <% end %>
 <% end %>

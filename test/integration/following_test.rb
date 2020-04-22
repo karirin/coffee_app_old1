@@ -9,7 +9,6 @@ class FollowingTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
   end
 
-
   test 'followers page' do
     get followers_user_path(@user)
     assert_not @user.followers.empty?

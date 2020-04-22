@@ -1,4 +1,17 @@
-<%= link_to gravatar_for(current_user, size: 300), current_user %>
+<%= image_tag current_user.image.url ,class: 'userinfo_image', size: '200x200' %>
 <div class="name"><%= current_user.name %></div>
+<% @user ||= current_user %>
+<div class="mystats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.following.count %>フォロー
+    </strong>
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>フォロワー
+    </strong>
+  </a>
+</div>
 <!-- <%# <span><%= link_to "view my profile", current_user %></span> -->
-<span>投稿数：<%= pluralize(current_user.posts.count, "") %></span>
+<%#投稿数：<%= pluralize(current_user.posts.count, "") %>

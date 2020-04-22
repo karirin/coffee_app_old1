@@ -3,16 +3,20 @@
 User.create!(name: 'Test User',
              email: 'test@example.com',
              password: 'test123',
-             password_confirmation: 'test123')
+             password_confirmation: 'test123',
+             image: open('app/assets/images/user_image/business_man_macho.png')
+)
 
 20.times do |n|
   name = Faker::Name.name
   email = "example-#{n + 1}@railstutorial.org"
   password = 'password'
+  image = open("app/assets/images/user_image/user_image.png")
   User.create!(name: name,
                email: email,
                password: password,
                password_confirmation: password,
+               image: image,
                activated: true,
                activated_at: Time.zone.now)
 end
@@ -21,18 +25,18 @@ end
   store_name = "#{n + 1}-cafe"
   address = "#{n + 1}-address"
   address_prefectures = (n + 1).to_i
-  image = open("app/assets/images/cafe(#{n + 1}).jpeg")
+  image = open("app/assets/images/cafe_shop/cafe(#{n + 1}).jpeg")
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
-#  environment = n.to_s
-#  evaluation = n.to_s
+  #  environment = n.to_s
+  #  evaluation = n.to_s
   user_id = '1'
   Post.create!(store_name: store_name,
                address: address,
-               address_prefectures: address_prefectures,              
+               address_prefectures: address_prefectures,
                image: image,
-#               environment: environment,
-#               evaluation: evaluation,
+               #               environment: environment,
+               #               evaluation: evaluation,
                time_start: time_start,
                time_end: time_end,
                user_id: user_id)
@@ -41,19 +45,19 @@ end
 5.times do |n|
   address = "#{n + 1}-address"
   address_prefectures = (n + 1).to_i
-  image = open("app/assets/images/cafe(#{n + 1}).jpeg")
+  image = open("app/assets/images/cafe_shop/cafe(#{n + 1}).jpeg")
   time_start = "#{n + 7}:00"
   time_end = "#{n + 17}:00"
-#  environment = n.to_s
-#  evaluation = n.to_s
+  #  environment = n.to_s
+  #  evaluation = n.to_s
   user_id = (n + 1).to_s
   store_name = "User.#{user_id}-cafe"
   Post.create!(store_name: store_name,
                address: address,
-               address_prefectures: address_prefectures,               
+               address_prefectures: address_prefectures,
                image: image,
-#               environment: environment,
-#               evaluation: evaluation,
+               #               environment: environment,
+               #               evaluation: evaluation,
                time_start: time_start,
                time_end: time_end,
                user_id: user_id)

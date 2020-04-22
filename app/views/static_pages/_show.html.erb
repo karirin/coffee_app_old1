@@ -1,14 +1,14 @@
 <div class="Allpost">
     <div class="showAllpost_detail">
-     <div class="post_image">
-      <%= image_tag @post.image, :size =>'400x300'%>
+     <div class="Post_image">
+      <%= image_tag @post.image, :size =>'350x250'%>
 <% if current_user.already_liked?(@post) %>
   <%= button_to 'いいね解除', post_like_path(@post), method: :delete %>
 <% else %>
   <%= button_to 'いいね', post_likes_path(@post) %>
 <% end %>
      </div>
-     <div class="post_content">
+     <div class="Post_content">
   <table class="table">
     <tr>
       <th>カフェの名前</th>

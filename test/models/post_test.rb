@@ -5,7 +5,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    @post = @user.posts.new(store_name: 'CoffeeShop', address: 'jyusho', time_start: '09:00', time_end: '18:00',   wifi: 'NULL', plug: 'NULL', tabacco: 'true', card: 'true', evaluation1: 'NULL', evaluation2: 'NULL', evaluation3: '1', evaluation4: '1', evaluation5: '1')
+    @post = @user.posts.new(store_name: 'CoffeeShop', address: 'jyusho', time_start: '09:00', time_end: '18:00', wifi: 'NULL', plug: 'NULL', tabacco: 'true', card: 'true', evaluation1: 'NULL', evaluation2: 'NULL', evaluation3: '1', evaluation4: '1', evaluation5: '1')
   end
 
   test 'should be valid' do
@@ -47,10 +47,10 @@ class PostTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-#  test 'environment should be present' do
-#    @post.environment = '     '
-#    assert_not @user.valid?
-#  end
+  #  test 'environment should be present' do
+  #    @post.environment = '     '
+  #    assert_not @user.valid?
+  #  end
   test 'evaluation should be present' do
     @post.time_end = '     '
     assert_not @user.valid?

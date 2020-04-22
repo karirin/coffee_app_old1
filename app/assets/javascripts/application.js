@@ -44,7 +44,6 @@
     $(".search.box").hide();
         $(".search.btn.btn-default").click(function () {
             $(".search.box").slideToggle();
-        
     }
         )});
 

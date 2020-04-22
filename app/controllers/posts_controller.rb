@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.save! 
+    @post.save!
     flash[:success] = '投稿されました。'
     redirect_to action: 'index'
   end
@@ -25,19 +25,19 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
   end
 
-  def index 
-#    @q = Post.ransack(params[:q])
-#    @posts = @q.result(distinct: true)
+  def index
+    #    @q = Post.ransack(params[:q])
+    #    @posts = @q.result(distinct: true)
     @post = Post.new
     @postall = Post.all
-#    @posts = Post.find_by("store_name = ?", params[:store_name]) 
-#    @posts = Post.paginate(page: params[:page], per_page: 6)
+    #    @posts = Post.find_by("store_name = ?", params[:store_name])
+    #    @posts = Post.paginate(page: params[:page], per_page: 6)
     @like = Like.new
     @q = Post.ransack(params[:q])
-    #sort = params[:sort] || "created_at DESC"
-    #params[:q] = { sorts: 'id desc' 
+    # sort = params[:sort] || "created_at DESC"
+    # params[:q] = { sorts: 'id desc'
     @posts = @q.result(distinct: true).paginate(page: params[:page], per_page: 6)
-    #@posts = @q.result.paginate(page: params[:page], per_page: 6)
+    # @posts = @q.result.paginate(page: params[:page], per_page: 6)
   end
 
   def destroy

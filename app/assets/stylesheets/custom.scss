@@ -122,19 +122,28 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
+.user_info{
+  text-align: center;
 }
 
-.gravatar_edit {
-  margin-top: 15px;
+.message{
+  text-align: center;
+  margin-bottom: -20px;
+  .alert.alert-success{
+  display: inline-block;
+  padding: 10px 200px;
+  border-radius: 10px;
+  }
 }
 
-.stats {
+
+.mystats {
   overflow: auto;
   margin-top: 0;
   padding: 0;
+  display: inline-block;
+  width: auto;
+  height: auto;
   a {
     float: left;
     padding: 0 10px;
@@ -220,14 +229,35 @@ input {
   }
 }
 
-.posts {
+.Refine_search{
+  text-align: center;
+  margin: 10px 0;
+  input:hover{
+    opacity: 0.8;
+  }
+  .search.btn.btn-default{
+  border-radius: 20px;
+  }
+}
+
+
+.Allpost{
+  display: inline-block;
+  margin:  10px 10px;
+
+}
+
+.Posts {
   padding: 0;
   display: block;
-
   width: auto;
   text-align: center;
+  a {
+    color:gray;
+    text-decoration: none;
+  }
   li {
-    padding: 20px 0 0 10px;
+    padding: 20px 0 0 20px;
     display: inline-block;
     margin-right: 5px;
     width: auto;
@@ -246,12 +276,7 @@ input {
   }
   .timestamp {
     color: $gray-light;
-    display: block;
-    text-align: right;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
+    display: inline-block;
     margin-top: 5px;
   }
 }
@@ -261,6 +286,11 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.alert.alert-success{
+  margin-top: 50px;
+  margin-bottom: -50px;
 }
 
 span.picture {
@@ -296,61 +326,76 @@ span.picture {
   margin: 0 200px 200px 0;
 }
 
-.Allpost {
-  padding: 10px;
-  display: block;
-}
-
-.Allpost_detail {
-  display: inline-block;
-  border: solid;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-}
-
-.post_image {
+.Post_image {
   width: auto;
   height: auto;
   display: inline-block;
   vertical-align: top;
-}
-
-.post_content {
-  width: auto;
-  display: inline-block;
-}
-
-.post_content p {
-  margin-bottom: 0;
-  font-size: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  img{
+    border-radius: 10px;
+  }
 }
 
 .name{
   color: #000;
-  font-size: 20px;
+  font-size: 40px;
 }
 
-.Mypost {
+.Post {
   display: inline-block;
   width: auto;
 }
 
-.Mypost_detail {
+.Post_detail {
   display: inline-block;
+  transition: 1.0s;
   box-shadow:0px 0px 6px 3px #d6d6d6;
   width: auto;
   height: auto;
   margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px; 
+  padding: 15px;
+  border-radius: 10px;
+  &:hover {
+    box-shadow:0px 0px 20px 3px #5f5f5f;
+  }
+  .delete-link{
+    color: #337ab7;
+    display: inline;
+  &:hover{
+    color: rgb(74, 74, 143);
+    text-decoration: underline;
+  }
+  }
 }
  
-.Mypost_content{
-  font-size: 15px;
+.Post_content{
+  font-size: 13px;
   display: inline-block;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  .Post_status{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    div{
+      margin-bottom: 5px;
+    }
+  }
+  p{
+    border-bottom: 1px solid #bdbdbd;
+    display: flex;
+    justify-content: space-between;
+    strong{
+      color: gray;
+    }
+    span{
+      margin-left: 5px;
+      color: rgb(50, 50, 50)
+    }
+  }
 }
 
 .pagination{
@@ -367,6 +412,33 @@ span.picture {
 //  margin-bottom: 10px;
 }
 
+.search.box{
+  text-align: center;
+  .Refine_search{
+    margin: 0;
+    input{
+    border: solid 3px rgb(189, 189, 189);
+    width: auto;
+    border-radius: 10px; 
+    padding: 10px 20px;
+    background-color: gray;
+    color: #fff;
+    }
+  }
+
+  .search.box_detail{
+    display: inline-block;
+    text-align: left;
+    margin-left: 30px;
+    vertical-align:top;
+    div{
+      margin-bottom: 10px;
+    }
+    .environment{
+      vertical-align:top;
+    }
+  }
+}
 .col-md-9{
 //  height: 2000px;
 }
@@ -377,6 +449,32 @@ span.picture {
 
 #post_time_end{
   width: auto;
+}
+
+#q_store_name_cont{
+  width: auto;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+#q_time_start_gteq{
+  width: auto;
+  margin: 0;
+}
+
+#q_time_end_lteq{
+  width: auto;
+  margin: 0;
+}
+
+#q_address_prefectures_eq{
+  width: auto;
+}
+
+#q_sorts{
+  width: auto;
+  margin: 0;
 }
 
 .btn.btn-default{
@@ -418,25 +516,21 @@ padding: 10px 0;
   font-size: 20px;
 }
 
-.post_image{
-  border-radius: 35px;
-}
-
-.showAllpost_detail .post_image{
+.showAllpost_detail .Post_image{
   padding: 20px;
   position: relative;
 }
 
-.showAllpost_detail .post_image img{
-  border: solid;
+.showAllpost_detail .Post_image img{
+  box-shadow: 0px 0px 6px 3px #d6d6d6;
   border-radius: 10px; 
 }
 
-.showAllpost_detail .post_content{
-  padding: 20px 20px 0 40px;
+.showAllpost_detail .Post_content{
+  padding: 0;
 }
 
-.showAllpost_detail .post_content h3{
+.showAllpost_detail .Post_content h3{
   font-size: 20px;
   margin: 0;
 }
@@ -479,27 +573,15 @@ padding: 10px 0;
 
 .row{
   margin-top: 50px;
+  .col-md-8{
+    text-align: center;
+  }
 }
 
 .good_users{
   text-align: left;
 }
 
-ol.likingfeed_posts{
-  padding: 0;
-  text-align: center;
-}
-
-ol.likingfeed_posts li{
-  display: inline-block;
-  margin-right: 8px;
-}
-
-ol.likingfeed_posts li .Mypost_detail .timestamp{
-  text-align: right;
-  display: block;
-  color: $gray-light;
-}
 
 .index.nav.navbar-nav{
   padding-right: 50px;
@@ -530,3 +612,8 @@ ol.likingfeed_posts li .Mypost_detail .timestamp{
   margin-bottom: -10px;
 }
 
+.userinfo_image{
+  border:solid;
+  border-radius: 50%;
+  margin: 10px 0;
+}
