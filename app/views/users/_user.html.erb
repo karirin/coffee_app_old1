@@ -1,10 +1,19 @@
+   <a href="/users/<%= user.id %>">
 <li>
-  <%= image_tag user.image%>
-  <%= link_to user.name, user %>
+
+<div class="user_detail">
+  <div><%= image_tag user.image, :size =>'150x150'%></div>
+       <div><%= user.name%></div>
+ </div>
+
+<div class="user_detail"><p>プロフィール</p><p><%=simple_format(user.self_introduction)%></p></div>
+
 <% if logged_in? %>
   <% if current_user.admin? && !current_user?(user) %>
       <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "本当に削除してもよろしいでしょうか？" } %>
   <% end %>
 <% end %>
+
 </li>
+</a>

@@ -3,7 +3,7 @@
          <% @likingfeed_items.each do |like| %>
             <% post = Post.find_by(id: like.post_id) %>
   <li>
-
+   <a href="/post/<%= post.id %>">
    <div class="Post_detail">
 <div class="Post_image_content">
 
@@ -12,23 +12,23 @@
      </div>
      <div class="Post_content">
      <p><strong>お店の名前</strong><span><%= post.store_name %></span></p>
-     <p><strong>住所 </strong><span><%= post.address %></span></p>
+     <p><strong>住所 </strong><span><%= post.address_prefectures %></span></p>
      <p><strong>営業時間 </strong><span><%= post.time_start %>〜<%= post.time_end %></span></p>
      </div>
 </div>
      <span class="timestamp">
-      Posted <%= time_ago_in_words(post.created_at) %> ago.
+      <%= time_ago_in_words(post.created_at) %>前の投稿　
       <% if current_user?(post.user) %>
-       <%= link_to "delete", post, method: :delete,
-                                      data: { confirm: "本当に削除してもよろしいでしょうか。" } %>
+       <%= link_to "削除", post, method: :delete,
+                                      data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "delete-link" %>
       <% end %>
      </span>
     <% end %>
 
-   </div>
+   </a>
   </li>
 
 
  </ol>
-       <%= will_paginate @likingfeed_items, :param_name => 'likingfeed_items_page', class: "center" %>
+       <%= will_paginate @likingfeed_items, previous_label: '&lt 前へ', next_label: '次へ &gt', :param_name => 'likingfeed_items_page', class: "center" %>
 <% end %>

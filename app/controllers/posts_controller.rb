@@ -23,33 +23,29 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
+    @post.user = current_user
+    return if @post.valid?
+    render :new
   end
 
   def index
-    #    @q = Post.ransack(params[:q])
-    #    @posts = @q.result(distinct: true)
     @post = Post.new
     @postall = Post.all
-    #    @posts = Post.find_by("store_name = ?", params[:store_name])
-    #    @posts = Post.paginate(page: params[:page], per_page: 6)
     @like = Like.new
     @q = Post.ransack(params[:q])
-    # sort = params[:sort] || "created_at DESC"
-    # params[:q] = { sorts: 'id desc'
     @posts = @q.result(distinct: true).paginate(page: params[:page], per_page: 6)
-    # @posts = @q.result.paginate(page: params[:page], per_page: 6)
   end
 
   def destroy
     @post.destroy
-    flash[:success] = '投稿が削除されました。'
-    redirect_to request.referrer || root_url
+    flash[:danger] = '投稿が削除されました。'
+    redirect_to root_url
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:store_name, :address, :address_prefectures, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation1, :evaluation2, :evaluation3, :evaluation4, :evaluation5)
+    params.require(:post).permit(:user,:store_name, :address, :address_prefectures, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation1, :evaluation2, :evaluation3, :evaluation4, :evaluation5)
   end
 
   def search_params

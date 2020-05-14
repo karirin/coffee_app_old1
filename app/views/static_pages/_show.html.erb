@@ -2,11 +2,22 @@
     <div class="showAllpost_detail">
      <div class="Post_image">
       <%= image_tag @post.image, :size =>'350x250'%>
-<% if current_user.already_liked?(@post) %>
-  <%= button_to 'いいね解除', post_like_path(@post), method: :delete %>
-<% else %>
-  <%= button_to 'いいね', post_likes_path(@post) %>
-<% end %>
+
+<% if logged_in? && @post.user != current_user%>
+      <div class="like_button">
+<%= render 'likes/like' , post: @post%>
+</div>
+<%end%>
+
+<span class="showpost_user">
+<p>投稿したユーザー</p>
+<div class="user_detail">
+<a href="/users/<%= @post.user.id %>">
+        <%= image_tag @post.user.image, :size => '50x50'%>
+    <%= @post.user.name %>
+</a>
+</div>
+</span>
      </div>
      <div class="Post_content">
   <table class="table">
@@ -19,7 +30,7 @@
     <tr>
       <th>住所</th>
       <td>
-        <%= @post.address %>
+        <%= @post.address_prefectures %><%= @post.address %>
       </td>
     </tr>
     <tr>

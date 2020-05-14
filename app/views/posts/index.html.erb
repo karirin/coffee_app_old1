@@ -1,9 +1,8 @@
 <% provide(:title, '投稿一覧画面') %>
 
 <div class="row">
- <div class="col-md-1">
- </div>
-<div class="col-md-10">
+ <%= render 'shared/messages'%>
+<div class="col-md-10 col-md-offset-1">
 
 <div class="Refine_search">
 <button class="search btn btn-default">絞り込み検索</button>
@@ -11,7 +10,7 @@
 
 <div class="form-group search box">
 <div class="search box_detail">
-  <%= search_form_for(@q, url:post_path) do |f|%>
+  <%= search_form_for(@q, url:posts_path) do |f|%>
   <div>
   <%= f.label :"お店の名前" %> <%= f.search_field :store_name_cont,class: "form-control"%>
   </div>
@@ -62,22 +61,25 @@
   <div class="Posts">
   <% @posts.each do |post| %>
 
-   <a href="/post/<%= post.id %>">
+
 
 <div class="Allpost">
-
+   <a href="/post/<%= post.id %>">
     <div class="Post_detail">
-
      <div class="Post_image">
-
       <%= image_tag post.image, :size =>'130x130'%>
-
+      <div>
+         <object><a href="/users/<%= post.user.id %>">
+        <%= image_tag post.user.image, :size => '50x50'%>
+    <%= post.user.name %>
+    </a></object>
+    </div>
      </div>
 
      <div class="Post_content">
 
      <p><strong>お店の名前</strong><span><%= post.store_name %></span></p>
-     <p><strong>住所 </strong><span><%= post.address %></span></p>
+     <p><strong>住所 </strong><span><%= post.address_prefectures %></span></p>
      <p><strong>営業時間 </strong><span><%= post.time_start %>〜<%= post.time_end %></span></p>
 
      <div>
@@ -134,15 +136,17 @@
      </div>
 
      </div>
+         <div>
+
+    </div>
     </div>
 </div>
    </a>
   <% end %>
 
  </div>
-   <%= will_paginate class: "center"%>
-<div class="col-md-1">
-</div>
+   <%= will_paginate class: "center" , previous_label: '&lt 前へ', next_label: '次へ &gt'%>
+
 </div>
 
 </div>

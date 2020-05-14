@@ -99,10 +99,6 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def already_liked?(post)
-    likes.exists?(post_id: post.id)
-  end
-
   private
 
   def downcase_email

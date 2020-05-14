@@ -1,5 +1,6 @@
-
-<%= form_for @post ,html: { class: "form-group" } do |form| %>
+<div class="title"><p>投稿画面</p></div>
+<%= form_for @post  do |form| %>
+<%= render 'shared/error_messages', object: form.object %>
 
 <%= form.label :"カフェ" %> <%= form.text_field :store_name, id: :store_name ,class: "form-control",placeholder: "カフェの名前をご入力ください"%>
 <%= form.label :"住所" %><%= form.select :address_prefectures, Post.address_prefectures.keys, {prompt: '都道府県を選択してください'}, class: 'form-control btn' %>
@@ -7,12 +8,14 @@
 
 <%= form.text_field :address, id: :address ,class: "form-control",placeholder: "住所をご入力ください"%>
 
-<%= form.label :"カフェの画像" %><%= form.file_field :image %>
-                                  
-<%= form.label :"営業時間"%><br>
-<%= form.time_field :time_start ,clsss: "bootstrap-timepicker"%> <%= form.label :"〜" %> <%= form.time_field :time_end %>
+<%= form.label :"カフェの画像" %><%= form.file_field :image %>                       
 
-<br><%= form.label :"環境" %>
+<div class="store_time">
+<%= form.label :"営業時間"%>
+<%= form.time_field :time_start ,class: "form-control"%> <%= form.label :"〜" %> <%= form.time_field :time_end ,class: "form-control"%>
+</div>
+
+<%= form.label :"環境" %>
 <div class="environment center" data-toggle="tooltip" title="Wi-Fi,充電,喫煙,クレジットカードの利用状況をご入力ください">
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default" >
@@ -41,7 +44,6 @@
 
 <div class="btn-group" data-toggle="buttons">
 	<label class="btn btn-default">
-		<%# <%= form.check_box :evaluation,  {} , true, false %><%#<%= image_tag 'star.png' , :size => '50x40'%>
          <%= form.check_box :evaluation1,   {} , '1', nil %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
 </div>
@@ -64,9 +66,8 @@
 	<label class="btn btn-default">
   		 <%= form.check_box :evaluation5,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
     </label>
-</div><br>
 </div>
-<br>
+</div>
 
 <%= form.submit "投稿" %>
 </div>

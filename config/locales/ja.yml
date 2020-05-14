@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+    models:
+      post: 投稿
+    attributes:
+      post:
+        store_name: お店の名前
+        address: 住所
+        address_prefectures: 都道府県
+        time_start: 開店時間
+        time_end: 閉店時間

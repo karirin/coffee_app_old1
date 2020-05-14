@@ -8,10 +8,9 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :store_name, presence: true, length: { maximum: 20 }
   validates :address, presence: true, length: { maximum: 50 }
+  validates :address_prefectures, presence: true
   validates :time_start, presence: true
   validates :time_end, presence: true
-  # validates :environment, presence: true
-  # validates :evaluation, presence: true
   mount_uploader :image, ImageUploader
 
   enum address_prefectures: {
@@ -39,5 +38,9 @@ class Post < ApplicationRecord
   ransacker :prefectures_group do
     query = '(SELECT address_prefectures FROM posts GROUP BY address_prefectures)'
     Arel.sql(query)
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 end

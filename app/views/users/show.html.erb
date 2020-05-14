@@ -1,29 +1,22 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= image_tag @user.image.url %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.posts.any? %>
-      <h3>投稿数 (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
-      <h3>いいねしている投稿</h3>
-      <% @user.liked_posts.each do |post| %>
-       <%= post.user.email %>
-       <%= post.store_name %>
-      <% end %>
-    <% end %>
+  <div class="row">
+
+    <div class="col-md-3">
+      <section class="user_info">
+        <%= render 'shared/user_info' , user: @user%>
+        <%= render 'shared/follow_form' if logged_in? %>
+      </section>
+    </div>
+
+    <div class="col-md-9">
+
+      <p class="my_toptitle">投稿したカフェ</p>
+      <%= render 'shared/myfeed' %>
+                <p class="like_toptitle">自分がいいねしたカフェ</p>
+      <%= render 'shared/likingfeed' %>
+      <p class="following_toptitle">フォロワーの投稿したカフェ</p>
+    　<%= render 'shared/followingfeed' %>
+
+
+    </div>
+
   </div>
-</div>

@@ -7,12 +7,15 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
+    @myfeed_items = @user.myfeed.paginate(page: params[:myfeed_items_page], per_page: 3)
+    @followingfeed_items = @user.followingfeed.paginate(page: params[:followingfeed_items_page], per_page: 3)
+    @likingfeed_items = @user.likingfeed.paginate(page: params[:likingfeed_items_page], per_page: 3)
   end
 
   def new
@@ -38,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = 'プロフィールが更新されました。'
-      redirect_to @user
+      redirect_to root_url
     else
       render 'edit'
     end
@@ -53,21 +56,21 @@ class UsersController < ApplicationController
   def test_login
     user = User.find_by(email: 'test@example.com')
     session[:user_id] = user.id
-    flash[:success] = 'テストユーザとしてログインしました。'
-    redirect_to user
+    flash[:success] = 'テストユーザーとしてログインしました。'
+    redirect_to root_url
   end
 
   def following
-    @title = 'Following'
+    @title = 'フォロー中'
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.paginate(page: params[:page],per_page:6)
     render 'show_follow'
   end
 
   def followers
-    @title = 'Followers'
+    @title = 'フォロワー'
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.paginate(page: params[:page],per_page:6)
     render 'show_follow'
   end
 
@@ -75,7 +78,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation,:image)
+                                 :password_confirmation,:image,:self_introduction)
   end
 
   def correct_user

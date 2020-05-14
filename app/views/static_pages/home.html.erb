@@ -1,6 +1,7 @@
 <% if logged_in? %>
-  <div class="row">
 
+  <div class="row">
+ <%= render 'shared/messages'%>
     <div class="col-md-3">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -22,6 +23,7 @@
   </div>
 <% else %>
  <div class="image">
+　<%= render 'shared/messages'%>
 　<div class="home_topic">
    <h1>お気に入りのカフェを投稿しよう</h1>
    <h2>
@@ -35,5 +37,3 @@
  </div>
 </div>
 <% end %>
-
-

@@ -1,5 +1,5 @@
-<%= image_tag current_user.image.url ,class: 'userinfo_image', size: '200x200' %>
-<div class="name"><%= current_user.name %></div>
+<%= image_tag @user.image.url ,class: 'userinfo_image', size: '200x200' %>
+<div class="name"><%= @user.name %></div>
 <% @user ||= current_user %>
 <div class="mystats">
   <a href="<%= following_user_path(@user) %>">
@@ -13,5 +13,4 @@
     </strong>
   </a>
 </div>
-<!-- <%# <span><%= link_to "view my profile", current_user %></span> -->
-<%#投稿数：<%= pluralize(current_user.posts.count, "") %>
+<div><%=simple_format(@user.self_introduction)%></div>

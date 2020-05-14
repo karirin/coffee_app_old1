@@ -7,15 +7,15 @@
    </div>
    <div class="Post_content">
     <p><strong>お店の名前</strong><span><%= post.store_name %></span></p>
-    <p><strong>住所 </strong><span><%= post.address %></span></p>
+    <p><strong>住所 </strong><span><%= post.address_prefectures %></span></p>
     <p><strong>営業時間 </strong><span><%= post.time_start %>〜<%= post.time_end %></span></p>
 
    </div>
    <div class="post_timestamp">
     <span class="timestamp">
-     Posted <%= time_ago_in_words(post.created_at) %> ago.
+     <%= time_ago_in_words(post.created_at) %>前の投稿　
      <% if current_user?(post.user) %>
-      <%= link_to "delete", post, method: :delete,
+      <%= link_to "削除", post, method: :delete,
                                       data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "delete-link" %>
      <% end %>
     </span>
