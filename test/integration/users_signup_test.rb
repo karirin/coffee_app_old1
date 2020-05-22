@@ -42,7 +42,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
 
-
     assert is_logged_in?
   end
 end

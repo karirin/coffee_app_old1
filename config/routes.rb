@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/post/create', to: 'posts#create'
   get 'post/:id', to: 'posts#show'
   get '/map', to: 'posts#map'
-  resources :maps, only: [:index, :create]
+  resources :maps, only: %i[index create]
   resources :users do
     member do
       get :following, :followers

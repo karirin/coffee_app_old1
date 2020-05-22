@@ -1,4 +1,4 @@
-
+# frozen_string_literal: true
 
 class PostsController < ApplicationController
   protect_from_forgery except: :create
@@ -43,6 +43,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     return if @post.valid?
+
     render :new
   end
 
@@ -65,15 +66,15 @@ class PostsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
       marker.lat post.latitude
       marker.lng post.longitude
-#      marker.infowindow render_to_string(partial: 'static_pages/show', locals: { post: @post })
-# post.imageが検索できないため後回し
+      #      marker.infowindow render_to_string(partial: 'static_pages/show', locals: { post: @post })
+      # post.imageが検索できないため後回し
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:user,:store_name, :address, :address_prefectures, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation1, :evaluation2, :evaluation3, :evaluation4, :evaluation5)
+    params.require(:post).permit(:user, :store_name, :address, :address_prefectures, :image, :time_start, :time_end, :wifi, :plug, :tabacco, :card, :evaluation1, :evaluation2, :evaluation3, :evaluation4, :evaluation5)
   end
 
   def search_params
