@@ -13,11 +13,16 @@
    </div>
    <div class="post_timestamp">
     <span class="timestamp">
+    <div>
      <%= time_ago_in_words(post.created_at) %>前の投稿　
+     </div>
+     <div>
      <% if current_user?(post.user) %>
-      <%= link_to "削除", post, method: :delete,
-                                      data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "delete-link" %>
+     <%= link_to "編集", edit_post_path(post.id) ,class: "link" %>
+     <%= link_to "削除", post, method: :delete,
+                                      data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "link" %>
      <% end %>
+     </div>
     </span>
    </div>
   </div>

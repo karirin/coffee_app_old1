@@ -1,0 +1,85 @@
+  <div class="title"><p>投稿編集画面</p></div>
+    <%= form_for(@post) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+    <div class="edit_detail">
+
+      <%= f.label :名前 %>
+      <%= f.text_field :store_name, class: 'form-control' %>
+
+      <%= f.label :住所 %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :カフェの画像 %>
+      <%= f.file_field :image, class: 'form-control' %>
+
+<div class="store_time">
+      <%= f.label :営業時間 %>
+      <%= f.time_field :time_start, class: 'form-control' %>
+      <%= f.label :"〜" %>
+      <%= f.time_field :time_end, class: 'form-control' %>
+</div>
+
+<%= f.label :"環境" %>
+<div class="environment center">
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default" >
+        <%= f.check_box :wifi, {} , true, false %><%= image_tag 'wifi.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :plug , {} , true, false %><%= image_tag 'plug.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :tabacco , {} , true, false %><%= image_tag 'tabacco.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :card , {} , true, false %><%= image_tag 'card.png' , :size => '50x40'%>
+    </label>
+</div>
+</div>
+
+<%= f.label :"評価" %>
+<div class="evaluation center">
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+         <%= f.check_box :evaluation1,   {} , '1', nil %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+         <%= f.check_box :evaluation2,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+         <%= f.check_box :evaluation3,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+  		 <%= f.check_box :evaluation4,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+  		 <%= f.check_box :evaluation5,  {} , '1', nil  %><%= image_tag 'star.png' , :size => '50x40'%>
+    </label>
+</div>
+</div>
+
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+</div>
+
+
+
+
+
+
+    </div>
+        <% end %>

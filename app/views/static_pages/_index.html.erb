@@ -1,0 +1,147 @@
+<%= render 'shared/messages'%>
+<div class="Refine_search">
+<button class="search btn btn-default">絞り込み検索</button>
+</div>
+
+<div class="form-group search box">
+<div class="search box_detail">
+  <%= search_form_for(@q, url:posts_path) do |f|%>
+  <div>
+  <%= f.label :"お店の名前" %> <%= f.search_field :store_name_cont,class: "form-control"%>
+  </div>
+  <div>
+  <%= f.label :"営業時間" %> <%= f.time_field :time_start_gteq %> 〜 <%= f.time_field :time_end_lteq %>
+  </div>
+  <div>
+  <%= f.label :"都道府県" %> <%= f.collection_select :address_prefectures_eq, @postall.distinct, :id, :address_prefectures, :include_blank => '指定なし'%>
+  </div>
+</div>
+<div class="search box_detail">
+<div>
+  <%= f.label :"並び替え" %> <%= f.select :sorts, {並び替え: "", いいねの多い順: "likes_count desc" , 投稿の新しい順: "created_at desc"} %>  
+</div>  
+  <div>
+  <%= f.label :"環境" ,class: "environment"%>
+  <div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default" >
+  <%= f.check_box :wifi_eq_any, { multiple: true }, true, false %><%= image_tag 'wifi.png' , :size => '50x40'%>
+     </label>
+</div>
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :plug_eq_any, { multiple: true }, true, false %><%= image_tag 'plug.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :tabacco_eq_any , { multiple: true } , true, false %><%= image_tag 'tabacco.png' , :size => '50x40'%>
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-default">
+        <%= f.check_box :card_eq_any , { multiple: true } , true, false %><%= image_tag 'card.png' , :size => '50x40'%>
+    </label>
+</div>
+</div>
+
+</div>
+<div class="Refine_search">
+    <%= f.submit "検索"%>
+    </div>
+
+  <%end%>
+  </div>
+
+  <div class="Posts">
+  <% @posts.each do |post| %>
+
+
+
+<div class="Allpost">
+   <a href="/post/<%= post.id %>">
+    <div class="Post_detail">
+     <div class="Post_image">
+      <%= image_tag post.image, :size =>'130x130'%>
+      <div>
+         <object><a href="/users/<%= post.user.id %>">
+        <%= image_tag post.user.image, :size => '50x50'%>
+    <%= post.user.name %>
+    </a></object>
+    </div>
+     </div>
+
+     <div class="Post_content">
+
+     <p><strong>お店の名前</strong><span><%= post.store_name %></span></p>
+     <p><strong>住所 </strong><span><%= post.address_prefectures %></span></p>
+     <p><strong>営業時間 </strong><span><%= post.time_start %>〜<%= post.time_end %></span></p>
+
+     <div>
+
+     <div class="Post_status">
+     <%= image_tag 'black_heart.png' , :size => '20x20'%>
+     ×
+     <%= post.likes.count %>
+     </div>
+
+     <div class="Post_status">
+
+<div>
+<% if post.wifi.present? %>
+ <%= image_tag 'wifi.png' , :size => '30x20'%>
+<%end%>
+
+<% if post.plug.present? %>
+ <%= image_tag 'plug.png' , :size => '20x20'%>
+<%end%>
+
+<% if post.tabacco.present? %>
+ <%= image_tag 'tabacco.png' , :size => '30x20'%>
+<%end%>
+
+<% if post.card.present? %>
+ <%= image_tag 'card.png' , :size => '30x20'%>   
+<%end%>
+</div>
+     <div>
+<% if post.evaluation1.present? %>
+ <%= image_tag 'star.png' , :size => '20x20'%>
+<%end%>
+
+<% if post.evaluation2.present? %>
+ <%= image_tag 'star.png' , :size => '20x20'%>
+<%end%>
+
+<% if post.evaluation3.present? %>
+ <%= image_tag 'star.png' , :size => '20x20'%>
+<%end%>
+
+<% if post.evaluation4.present? %>
+ <%= image_tag 'star.png' , :size => '20x20'%>
+<%end%>
+
+<% if post.evaluation5.present? %>
+ <%= image_tag 'star.png' , :size => '20x20'%>
+<%end%>
+</div>
+
+     </div>
+
+     </div>
+
+     </div>
+         <div>
+         <% if current_user?(post.user) %>
+     <%= link_to "編集", edit_post_path(post.id) ,class: "link" %>
+     <%= link_to "削除", post, method: :delete,
+                                      data: { confirm: "本当に削除してもよろしいでしょうか。" },class: "link" %>
+     <% end %>
+    </div>
+    </div>
+</div>
+   </a>
+  <% end %>
+
+ </div>
+   <%= will_paginate class: "center" , previous_label: '&lt 前へ', next_label: '次へ &gt'%>

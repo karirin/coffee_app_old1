@@ -169,22 +169,77 @@ User.create!(name: 'カープ 広島',
   activated_at: Time.zone.now
 )
 
-5.times do |n|
-  address = "#{n + 1}-address"
-  address_prefectures = (n + 1).to_i
-  image = open("app/assets/images/cafe_shop/cafe(#{n + 1}).jpeg")
-  time_start = "#{n + 7}:00"
-  time_end = "#{n + 17}:00"
-  user_id = (n + 1).to_s
-  store_name = "User.#{user_id}-cafe"
-  Post.create!(store_name: store_name,
-               address: address,
-               address_prefectures: address_prefectures,
-               image: image,
-               time_start: time_start,
-               time_end: time_end,
-               user_id: user_id)
-end
+Post.create!(  
+  address: "愛知県名古屋市中区大須3-31−11",
+  image: open("app/assets/images/cafe_shop/cafe(1).jpeg"),
+  time_start: "7:30",
+  time_end: "20:00",
+  user_id: "1",
+  store_name: "ドトールコーヒーショップ 大須万松寺通店")
+
+Post.create!(  
+  address: "北海道札幌市南区定山渓567−36",
+  image: open("app/assets/images/cafe_shop/cafe(2).jpeg"),
+  time_start: "7:30",
+  time_end: "20:00",
+  user_id: "2",
+  store_name: "カフェ崖の上")
+
+Post.create!(  
+  address: "北海道勇払郡厚真町字豊沢495−4",
+  image: open("app/assets/images/cafe_shop/cafe(2).jpeg"),
+  time_start: "11:00",
+  time_end: "17:00",
+  user_id: "2",
+  store_name: "momo・cafe")
+
+  Post.create!(  
+    address: "北海道札幌市中央区南2-26-2-18",
+    image: open("app/assets/images/cafe_shop/cafe(2).jpeg"),
+    time_start: "10:00",
+    time_end: "21:00",
+    user_id: "2",
+    store_name: "森彦")
+
+Post.create!(  
+  address: "長崎県長崎市東古川町１−５",
+  image: open("app/assets/images/cafe_shop/cafe(3).jpeg"),
+  time_start: "11:30",
+  time_end: "19:00",
+  user_id: "3",
+  store_name: "長崎カフェ 一花五葉")
+
+Post.create!(  
+  address: "長崎県長崎市出島町10−3",
+  image: open("app/assets/images/cafe_shop/cafe(3).jpeg"),
+  time_start: "11:00",
+  time_end: "17:00",
+  user_id: "3",
+  store_name: "cafe わかば堂 長崎出島店")
+
+  Post.create!(  
+    address: "長崎県長崎市万屋町5−9",
+    image: open("app/assets/images/cafe_shop/cafe(3).jpeg"),
+    time_start: "12:00",
+    time_end: "19:00",
+    user_id: "3",
+    store_name: "ディコ・アパルトマン")
+
+ Post.create!(  
+  address: "青森県青森市長島2-5−20",
+  image: open("app/assets/images/cafe_shop/cafe(4).jpeg"),
+  time_start: "12:00",
+  time_end: "17:00",
+  user_id: "4",
+  store_name: "アヲモリカフェ")
+
+ Post.create!(  
+  address: "東京都新宿区新宿3-31−3",
+  image: open("app/assets/images/cafe_shop/cafe(5).jpeg"),
+  time_start: "9:30",
+  time_end: "23:00",
+  user_id: "5",
+  store_name: "名曲・珈琲 らんぶる")
 
 users = User.all
 user  = users.first

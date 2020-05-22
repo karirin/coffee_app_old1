@@ -1,3 +1,4 @@
+    <div class="title"><p>投稿詳細画面</p></div>
 <div class="Allpost">
     <div class="showAllpost_detail">
      <div class="Post_image">
@@ -30,7 +31,7 @@
     <tr>
       <th>住所</th>
       <td>
-        <%= @post.address_prefectures %><%= @post.address %>
+        <%= @post.address %>
       </td>
     </tr>
     <tr>
@@ -104,4 +105,16 @@
 </table>
      </div>
     </div>
+
+     <div id="map" style="width: 800px; height: 400px;"></div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(16);
+  });
+</script>
  </div>

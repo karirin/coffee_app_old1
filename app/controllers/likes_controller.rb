@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 class LikesController < ApplicationController
   protect_from_forgery except: %i[create destroy]

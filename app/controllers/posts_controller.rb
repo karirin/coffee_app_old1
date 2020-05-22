@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 class PostsController < ApplicationController
   protect_from_forgery except: :create
@@ -17,8 +17,26 @@ class PostsController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = '投稿が編集されました。'
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @post = Post.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@post) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+    end
   end
 
   def confirm
@@ -40,6 +58,16 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:danger] = '投稿が削除されました。'
     redirect_to root_url
+  end
+
+  def map
+    @posts = Post.all
+    @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
+      marker.lat post.latitude
+      marker.lng post.longitude
+#      marker.infowindow render_to_string(partial: 'static_pages/show', locals: { post: @post })
+# post.imageが検索できないため後回し
+    end
   end
 
   private

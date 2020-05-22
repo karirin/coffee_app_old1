@@ -1,6 +1,7 @@
 
 <% if @post.liked_by?(current_user) %>
-  <%= button_to 'いいね解除', post_like_path(@post), method: :delete, remote: true %>
+<%= button_to 'いいね解除', post_like_path(@post, Like.find_by(post: @post, user: current_user)), method: :delete, remote: true %>
 <% else %>
   <%= button_to 'いいね', post_likes_path(@post), method: :post, remote: true %>
 <% end %>
+

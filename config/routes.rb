@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'maps/index'
+
   root 'static_pages#home'
   get  '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
@@ -10,7 +12,8 @@ Rails.application.routes.draw do
   post '/posts', to: 'posts#confirm'
   post '/post/create', to: 'posts#create'
   get 'post/:id', to: 'posts#show'
-
+  get '/map', to: 'posts#map'
+  resources :maps, only: [:index, :create]
   resources :users do
     member do
       get :following, :followers
